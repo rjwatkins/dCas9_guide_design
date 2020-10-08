@@ -12,7 +12,7 @@ head(guidedb, n = 20)
 
 #remove first 9 rows and rename columns
 guidedb_rows <- guidedb[-c(1:9),]
-head(guidebd_rows)
+head(guidedb_rows)
 guidedb_new <- guidedb_rows %>% setNames(c("sgID", "gene", "transcript", "protospacer_sequence", "selection_rank",
                                            "predicted_score", "empirical_score", "off_target_stringency", "sublibrary_half"))
 
@@ -39,7 +39,7 @@ guidedb_new <- guidedb_new %>% mutate(protospacer_reverse = protospacer_reverse)
 
 
 # filter out top 3 guides and add overhangs for cloning
-top_three_table <- guidedb_new %>% filter(gene == "IST1" & between(selection_rank, 1, 3)) %>%
+top_three_table <- guidedb_new %>% filter(gene == "WWP1" & between(selection_rank, 1, 3)) %>%
   mutate(sense = paste("CACC", protospacer_sequence, sep = ""), 
          antisense = paste("AAAC", protospacer_reverse, sep = "")) %>%
   select(gene, protospacer_sequence, selection_rank, strand, sense, antisense)
@@ -48,7 +48,7 @@ top_three_table <- guidedb_new %>% filter(gene == "IST1" & between(selection_ran
 write.csv(top_three_table, "top_three.csv", row.names = FALSE)
 
 # Convert table to format required by UFS
-oligo_order <- top_three %>%
+oligo_order <- top_three_table %>%
   gather(oligo, Oligo_sequence_5_to_3, "sense" : "antisense") %>%
   mutate(Oligo_name = paste(gene, selection_rank, oligo, sep = "_"), 
          Researcher_Name = "Dr Rachel Allison",
