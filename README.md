@@ -13,13 +13,17 @@ Run the following steps of the program:
  -  reverse complement protospacer sequence
 
  -  filter out top 3 guides and add overhangs for cloning
+ 
 In this step chnage the gene name to your gene of interest and the cloning overhangs for your sense and antisense strands. The current overhangs are suitable for cloning into pKLV and pX459.
 
  -  export as csv for your records
+ 
 Exports the relevant information as a csv file for your records.
 
  -  Convert table to format required by UFS
+ 
 Change your name and any other parameters you require.
 
  - export as csv for ordering
+ 
 Exports csv file in correct format for upload on UFS. It creates a few errors on UFS but doesn't seem to prevent upload.
