@@ -1,8 +1,10 @@
+****CRISPRi sg database (Horlbeck et al., 2016).xlsx****
+
+The original .xlsx file from the Horlbeck paper.
+
 ****dCas9_Guide_Design.R****
 
 Uses the protospacer sequences identified in Horlbeck et al., 2016 to design sense and antisense oligo sequences for any gene of choice that are formatted as a csv file ready to upload to the University of Cambridge (UFS) purchasing program.
-
-The original .xlsx file from the Horlbeck paper is: CRISPRi sg database (Horlbeck et al., 2016).xlsx
 
 Run the following steps of the program:
  -  import raw data
