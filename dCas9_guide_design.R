@@ -24,13 +24,13 @@ guidedb_new$empirical_score <- as.numeric(guidedb_new$empirical_score)
 # add new column with strand + or -
 guidedb_new$strand <- ifelse(grepl("?._-_?.", guidedb_new$sgID), "-", "+")
 
-# reverse complement protospacer sequence
 # install Biostrings
 if (!requireNamespace("BiocManager", quietly = TRUE))
   install.packages("BiocManager")
 BiocManager::install("Biostrings")
 require(Biostrings)
 
+# reverse complement protospacer sequence
 protospacer_reverse <- DNAStringSet(guidedb_new$protospacer_sequence)
 protospacer_reverse <- reverseComplement(protospacer_reverse)
 protospacer_reverse <- as.character(protospacer_reverse)
@@ -60,7 +60,7 @@ oligo_order <- top_three %>%
 # export as csv for ordering
 write.csv(oligo_order, "oligo_order.csv", row.names = FALSE)
   
-  
+
   
   
   
